@@ -1,0 +1,57 @@
+PROGRAM Calc(INPUT, OUTPUT);
+VAR
+  Ch1, Units, Tens, Hundreds, Message: CHAR;
+BEGIN
+  READ(Ch1);
+  Units := '0';
+  Tens := '0';
+  Hundreds := '0';
+  WHILE Ch1 <> '#'
+  DO
+    BEGIN
+      WRITE(Ch1);
+      IF Units = '0' THEN Units := '1' ELSE
+        IF Units = '1' THEN Units := '2' ELSE
+          IF Units = '2' THEN Units := '3' ELSE
+            IF Units = '3' THEN Units := '4' ELSE
+              IF Units = '4' THEN Units := '5' ELSE
+                IF Units = '5' THEN Units := '6' ELSE
+                  IF Units = '6' THEN Units := '7' ELSE
+                    IF Units = '7' THEN Units := '8' ELSE
+                      IF Units = '8' THEN Units := '9' ELSE
+                        IF Units = '9' THEN
+                          BEGIN
+                            Units := '0';
+                            IF Tens = '0' THEN Tens := '1' ELSE
+                              IF Tens = '1' THEN Tens := '2' ELSE 
+                                IF Tens = '2' THEN Tens := '3' ELSE
+                                  IF Tens = '3' THEN Tens := '4' ELSE
+                                    IF Tens = '4' THEN Tens := '5' ELSE
+                                      IF Tens = '5' THEN Tens := '6' ELSE 
+                                        IF Tens = '6' THEN Tens := '7' ELSE
+                                          IF Tens = '7' THEN Tens := '8' ELSE
+                                            IF Tens = '8' THEN Tens := '9' ELSE
+                                              IF Tens = '9' THEN
+                                                BEGIN
+                                                  Tens := '0';
+                                                  IF Hundreds = '0' THEN Hundreds := '1' ELSE
+                                                    IF Hundreds = '1' THEN Hundreds := '2' ELSE
+                                                      IF Hundreds = '2' THEN Hundreds := '3' ELSE
+                                                        IF Hundreds = '3' THEN Hundreds := '4' ELSE
+                                                          IF Hundreds = '4' THEN Hundreds := '5' ELSE
+                                                            IF Hundreds = '5' THEN Hundreds := '6' ELSE
+                                                              IF Hundreds = '6' THEN Hundreds := '7' ELSE
+                                                                IF Hundreds = '7' THEN Hundreds := '8' ELSE
+                                                                   IF Hundreds = '8' THEN Hundreds := '9' ELSE
+                                                                     IF Hundreds = '9' THEN Message := '1';
+                                                END
+                          END;
+      READ(Ch1)
+    END;
+  WRITELN();
+  IF Message = '1'
+  THEN
+    WRITELN('Переполнение')
+  ELSE
+    WRITELN('Number of characters is ', Hundreds, Tens, Units)
+END.
